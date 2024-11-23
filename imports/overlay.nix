@@ -1,6 +1,7 @@
 { inputs, ... }:
-
 {
+  imports = [ inputs.flake-parts.flakeModules.easyOverlay ];
+
   perSystem =
     { config, system, ... }:
     {
@@ -10,6 +11,9 @@
         config = { };
       };
 
-      overlayAttrs = config.packages;
+      overlayAttrs = config.packages // {
+        previous = import inputs.previous { inherit system; };
+        unstable = import inputs.unstable { inherit system; };
+      };
     };
 }

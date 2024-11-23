@@ -1,24 +1,22 @@
 [![Donate!][donate github]][github sponsors link]
 
-# My Custom Nixpkgs Overlay
+# Ardupkgs
 
-This repository serves as a template for creating your own collection of custom
-Nix expressions, akin to what is done in `nixpkgs`. It includes a `default`
-overlay that exposes all custom packages, facilitating their integration into
-other projects.
+This repository provides dependencies and other related software for the [ArduPilot] project. It's structured as a collection of Nix expressions, similar to what is done in [`nixpkgs`]. It is based on the [`my-own-nixpkgs`] template.
+
+[ardupilot]: https://ardupilot.org/
+[`nixpkgs`]: https://github.com/NixOS/nixpkgs
+[`my-own-nixpkgs`]: https://github.com/drupol/my-own-nixpkgs
 
 ## Usage
 
 ### Setting Up
 
-1. Fork this repository.
-2. Begin adding packages to the `pkgs/by-name` directory. Follow the
-   same approach as adding packages in `nixpkgs`. Similar to [RFC140], packages
-   added in this directory will be automatically discovered.
-   - Create a new directory for each package.
-   - Inside each directory, create a `package.nix` file.
-3. Optionally, you can add packages directly to the `pkgs/` directory and
-   manually update the bindings in the `imports/pkgs-all.nix` file.
+1. Install [Nix]
+2. Setup [Cachix], a binary cache
+
+[Nix]: https://nixos.org/download/
+[Cachix]: https://cachix.org/
 
 ### Integrating Your Repository as an Overlay
 
