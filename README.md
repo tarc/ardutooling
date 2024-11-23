@@ -1,8 +1,8 @@
 [![Donate!][donate github]][github sponsors link]
 
-# Ardupkgs
+# Ardutooling
 
-This repository provides dependencies and other related software for the [ArduPilot] project. It's structured as a collection of Nix expressions, similar to what is done in [`nixpkgs`]. It is based on the [`my-own-nixpkgs`] template.
+This repository provides all the required tooling for the [ArduPilot] project. It's structured as a collection of Nix expressions, similar to what is done in [`nixpkgs`]. It is based on the [`my-own-nixpkgs`] template.
 
 [ardupilot]: https://ardupilot.org/
 [`nixpkgs`]: https://github.com/NixOS/nixpkgs
@@ -14,9 +14,17 @@ This repository provides dependencies and other related software for the [ArduPi
 
 1. Install [Nix]
 2. Setup [Cachix], a binary cache
+3. Setup [`direnv`], for automatic handling shell environments
+4. Install the [`nix-direnv`] plugin
 
 [Nix]: https://nixos.org/download/
 [Cachix]: https://cachix.org/
+[`direnv`]: https://direnv.net/
+[`nix-direnv`]: https://github.com/nix-community/nix-direnv
+
+### Setup a new development environment
+
+Scaffold a project with the flake template.
 
 ### Integrating Your Repository as an Overlay
 
@@ -82,4 +90,4 @@ contributors][6].
 
 [donate github]: https://img.shields.io/badge/Sponsor-Github-brightgreen.svg?style=flat-square
 [github sponsors link]: https://github.com/sponsors/tarc
-[6]: https://github.com/tarc/ardupkgs/graphs/contributors
+[6]: https://github.com/tarc/ardutooling/graphs/contributors
