@@ -7,12 +7,21 @@
     {
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
-        overlays = [ inputs.self.overlays.default ];
+        overlays = [
+          inputs.self.overlays.default
+          (final: prev: { previous = import inputs.previous { inherit system; }; })
+        ];
         config = { };
       };
 
-      overlayAttrs = config.packages // {
-        previous = import inputs.previous { inherit system; };
+      overlayAttrs = {
+        inherit (config.packages)
+          conan
+          empy
+          ghostscript
+          mavproxy
+          pyEnv
+          ;
         unstable = import inputs.unstable { inherit system; };
       };
     };

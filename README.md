@@ -32,11 +32,11 @@ To use this repository as an overlay in another project, follow these steps:
 
 1. **Add the Repository as an Input**:
 
-   Add the following to your `nix` file to include this repository as an input:
+   Add the following to your `Flake.nix` file to include this repository as an input:
 
    ```nix
    inputs = {
-       my-custom-nixpkgs.url = "repo-url";  # Replace "repo-url" with the actual URL to your repository
+    ardutooling.url = "github:tarc/ardutooling";
    };
    ```
 
@@ -47,7 +47,7 @@ To use this repository as an overlay in another project, follow these steps:
    ```nix
    pkgs = import inputs.nixpkgs {
      overlays = [
-       inputs.my-custom-nixpkgs.overlays.default
+       inputs.ardutooling.overlays.default
      ];
    };
    ```

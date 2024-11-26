@@ -1,13 +1,13 @@
 { ... }:
 {
   perSystem =
-    { pkgs, final, ... }:
+    { final, pkgs, ... }:
     {
       packages = rec {
         default = mavproxy;
         ghostscript = final.unstable.ghostscript;
-        mavproxy = pkgs.callPackage ../pkgs/mavproxy.nix {
-          inherit (pkgs.unstable.python311Packages)
+        mavproxy = final.callPackage ../pkgs/mavproxy.nix {
+          inherit (final.unstable.python311Packages)
             buildPythonApplication
             lxml
             matplotlib
@@ -21,6 +21,30 @@
             gnureadline
             ;
         };
+        pyEnv = pkgs.python3.withPackages (
+          python-pkgs: with python-pkgs; [
+            wheel
+            future
+            lxml
+            numpy
+            opencv4
+            pymavlink
+            pyserial
+            pexpect
+            geocoder
+            flake8
+            junitparser
+            final.empy
+            dronecan
+            intelhex
+            gnureadline
+            setuptools
+            wxpython
+            billiard
+            matplotlib
+            pyparsing
+          ]
+        );
       };
     };
 }
